@@ -36,3 +36,12 @@ models:
     # Applies to all files under models/example/
     example:
       materialized: view
+  +on_schema_change: "sync_all_columns"
+  +persist_docs:
+    relation: true
+    columns: true
+  trusted-data:
+    materialized: table
+  service_data:
+    materialized: table
+    
