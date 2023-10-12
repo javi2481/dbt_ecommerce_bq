@@ -2,10 +2,9 @@
 version: 2
 
 sources:
-  - name: g_drive_javier_ecommerce
-    schema: g_drive_javier_ecommerce
+  - name: ecommerce_raw
+    schema: ecommerce_raw
     tables:
-      - name: stores
       - name: customers
       - name: geolocation
       - name: order_items
