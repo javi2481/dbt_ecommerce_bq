@@ -6,8 +6,9 @@ select
   , PRODUCT_ID
   , SELLER_ID
   , SHIPPING_LIMIT_DATE
-  , PRICE
+  , COALESCE(PRICE, 0) AS PRICE
   , FREIGHT_VALUE
+
 from 
     data-analyst-prj.ecommerce_raw.order_items
 where 
