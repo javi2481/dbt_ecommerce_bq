@@ -3,7 +3,9 @@
 select 
     SELLER_ID
   , SELLER_ZIP_CODE_PREFIX
-  , SELLER_CITY
-  , SELLER_STATE
+  , TRIM(UPPER(SELLER_CITY)) AS SELLER_CITY
+  , TRIM(UPPER(SELLER_STATE)) AS SELLER_STATE
 from 
     data-analyst-prj.ecommerce_raw.sellers
+where
+    SELLER_ID IS NOT NULL

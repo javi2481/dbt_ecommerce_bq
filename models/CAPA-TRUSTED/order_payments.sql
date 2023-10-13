@@ -3,8 +3,10 @@
 select 
     ORDER_ID
   , PAYMENT_SEQUENTIAL
-  , PAYMENT_TYPE
+  , TRIM(UPPER(PAYMENT_TYPE)) AS PAYMENT_TYPE
   , PAYMENT_INSTALLMENTS
   , PAYMENT_VALUE
 from 
     data-analyst-prj.ecommerce_raw.order_payments
+where
+    ORDER_ID IS NOT NULL
