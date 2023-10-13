@@ -1,0 +1,152 @@
+version: 2
+
+models:
+  - name: customer
+    config:
+      schema: ecommerce_raw
+    columns:
+      - name: customer_id
+        description: id del customer
+      - name: customer_unique_id
+        description: id unico de cada customer
+      - name: customer_zip_code_prefix
+        description: prefijo del codigo postal
+      - name: customer_city
+        description: ciudad del customer
+      - name: customer_state
+        description: provincia del customer
+
+  - name: geolocation
+    config:
+      schema: ecommerce_raw
+    columns:
+      - name: geolocation_zip_code_prefix
+        description: prefijo del codigo postal
+      - name: geolocation_lat
+        description: latitud
+      - name: geolocatio_lng
+        description: longitud
+      - name: geolocation_city
+        description: ciudad
+      - name: geolocation_state
+        description: provincia
+
+  - name: order_items
+    config:
+      schema: ecommerce_raw
+    columns:
+      - name: order_id
+        description: id de la orden
+      - name: order_item_id
+        description: id del item de la orden
+      - name: product_id
+        description: id del producto
+      - name: seller_id
+        description: id del seller
+      - name: shipping_limit_date
+        description: fecha limite para el despacho
+      - name: price
+        description: precio
+      - name: freight_value
+        description: valor del transporte
+  
+  - name: order_payments
+    config: 
+      schema: ecommerce_raw
+    columns:
+      - name: order_id
+        description: id de la orden
+      - name: payment_sequential
+        description: verlo luego
+      - name: payment_type
+        description: tipo de pago
+      - name: payments_installments
+        description: verlo luego
+      - name: payment_value
+        description: valor del pago
+
+  - name: order_reviews
+    config:
+      schema: ecommerce_raw
+    columns:
+      - name: review_id
+        description: id del review
+      - name: order_id
+        description: id de la orden
+      - name: review_score
+        description: score del review
+      - name: review_comment_title
+        description: titulo del review
+      - name: review_comment_message
+        description: comentarios del review
+      - name: review_creation_table
+        description: fecha de la creacion del review
+      - name: review_answer_timestamp
+        description: fecha de la contestacion
+
+  - name: orders
+    config:
+      schema: ecommerce_raw
+    columns:
+      - name: order_id
+        description: id de la orden
+      - name: customer_id
+        description: id del customer
+      - name: order_status
+        description: status de la orden
+      - name: order_purchase_time_stamp
+        description: fecha de compra
+      - name: order_approved_at
+        description: fecha de aprobacion de la orden
+      - name: order_delivered_carrier_date
+        description: fecha del despacho hacia el carrier
+      - name: order_delivered_customer_date
+        description: fecha del despacho
+      - name: order_estimated_delivery_date
+        description: fecha estimada de entrega
+  
+  - name: product_category_name_translation
+    config:
+      schema: ecommerce_raw
+    columns:
+      - name: product_category_name
+        description: nombre de la categoria del producto
+      - name: product_category_name_english
+        description: traduccion del nombre de la categoria al ingles
+      
+  - name: products
+    config:
+      schema: ecommerce_raw
+    columns:
+      - name: product_id
+        description: id del producto
+      - name: product_category_name
+        description: categoria del producto
+      - name: product_name_lenght
+        description: longitud del nombre del producto
+      - name: product_description_lenght
+        description: longitud de la descripcion del producto
+      - name: product_photo_qty
+        description: cantidad de fotos del producto
+      - name: product_weight_g
+        description: peso del producto
+      - name: product_lenght_cm (gr)
+        description: largo del producto (cm)
+      - name: product_height_cm
+        description: alto del producto (cm)
+      - name: product_widht_cm
+        description: ancho del producto (cm)
+  
+  - name: sellers
+    config:
+      schema: ecommerce_raw
+    columns:
+      - name: seller_id
+        description: id del seller
+      - name: seller_zip_code_prefix
+        description: prefijo del codigo postal del seller
+      - name: seller_city
+        description: ciudad del seller
+      - name: seller_state
+        description: provincia del seller
+    
