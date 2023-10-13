@@ -1,5 +1,4 @@
-
-version: 2
+version: 1
 
 sources:
   - name: ecommerce_raw
@@ -11,7 +10,6 @@ sources:
       - name: order_payments
       - name: order_reviews
       - name: orders
-      - name: product_category
+      - name: product_category_name_translation
       - name: products
       - name: sellers
-      
