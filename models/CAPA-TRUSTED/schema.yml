@@ -6,25 +6,25 @@ models:
       schema: ecommerce_raw
     columns:
       - name: customer_id
-        description: id del customer
+        description: Id del consumidor que realizó la compra
         tests:
           - unique
           - not_null
       - name: customer_unique_id
-        description: id unico de cada customer
+        description: Id único del consumidor
         tests:
           - unique
           - not_null
       - name: customer_zip_code_prefix
-        description: prefijo del codigo postal
+        description: Código postal de la ubicación del consumidor
         tests:
               - not_null
       - name: customer_city
-        description: ciudad del customer
+        description: Nombre de la ciudad desde donde se realiza el pedido
         tests:
               - not_null
       - name: customer_state
-        description: provincia del customer
+        description: Código del estado desde donde se realiza el pedido
         tests:
               - not_null
 
@@ -58,35 +58,35 @@ models:
       schema: ecommerce_raw
     columns:
       - name: order_id
-        description: id de la orden
+        description: Id único del pedido realizado por los consumidores
         tests:
           - unique
           - not_null
       - name: order_item_id
-        description: id del item de la orden
+        description: Id único asignado a cada artículo pedido en el pedido
         tests:
           - unique
           - not_null
       - name: product_id
-        description: id del producto
+        description: Id único asignado a cada producto disponible en el sitio
         tests:
           - unique
           - not_null
       - name: seller_id
-        description: id del seller
+        description: Id único del vendedor registrado en olist
         tests:
           - unique
           - not_null
       - name: shipping_limit_date
-        description: fecha limite para el despacho
+        description: La fecha antes de la cual se debe completar el envío del producto
         tests:
               - not_null
       - name: price
-        description: precio
+        description: Precio real de los productos pedidos
         tests:
               - not_null
       - name: freight_value
-        description: valor del transporte
+        description: Tarifa de precio a la que se entrega un producto de un punto a otro
         tests:
               - not_null
   
@@ -95,24 +95,24 @@ models:
       schema: ecommerce_raw
     columns:
       - name: order_id
-        description: id de la orden
+        description: Id único del pedido realizado por los consumidores
         tests:
           - unique
           - not_null
       - name: payment_sequential
-        description: verlo luego
+        description: Secuencia de los pagos realizados en caso de compra a plazos
         tests:
               - not_null
       - name: payment_type
-        description: tipo de pago
+        description: Modo de pago utilizado
         tests:
               - not_null
       - name: payments_installments
-        description: verlo luego
+        description: Número de cuotas en caso de compra a plazos
         tests:
               - not_null
       - name: payment_value
-        description: valor del pago
+        description: Cantidad total pagada por el pedido de compra
         tests:
               - not_null
 
@@ -121,33 +121,33 @@ models:
       schema: ecommerce_raw
     columns:
       - name: review_id
-        description: id del review
+        description: Id de la revisión dada sobre el producto ordenado por el id del pedido
         tests:
           - unique
           - not_null
       - name: order_id
-        description: id de la orden
+        description: Id único del pedido realizado por los consumidores
         tests:
           - unique
           - not_null
       - name: review_score
-        description: score del review
+        description: Puntuación de la revisión dada por el cliente para cada pedido en una escala de 1 a 5
         tests:
               - not_null
       - name: review_comment_title
-        description: titulo del review
+        description: Título de la revisión
         tests:
               - not_null
       - name: review_comment_message
-        description: comentarios del review
+        description: Comentarios de la revisión publicados por el consumidor para cada pedido
         tests:
               - not_null
-      - name: review_creation_table
-        description: fecha de la creacion del review
+      - name: review_creation_date
+        description: Marca de tiempo de la revisión cuando se crea
         tests:
               - not_null
       - name: review_answer_timestamp
-        description: fecha de la contestacion
+        description: Marca de tiempo de la revisión respondida
         tests:
               - not_null
 
@@ -156,36 +156,37 @@ models:
       schema: ecommerce_raw
     columns:
       - name: order_id
-        description: id de la orden
+        description: Id único del pedido realizado por los consumidores
         tests:
           - unique
           - not_null
       - name: customer_id
-        description: id del customer
+        description: Id del consumidor que realizó la compra
         tests:
           - unique
           - not_null
       - name: order_status
-        description: status de la orden
+        description: Estado del pedido realizado, es decir, entregado, enviado, etc
         tests:
               - not_null
       - name: order_purchase_time_stamp
-        description: fecha de compra
-
+        description: Marca de tiempo de la compra
+        tests:
+          - not_null
       - name: order_approved_at
-        description: fecha de aprobacion de la orden
+        description: Marca de tiempo de la aprobación del pedido
         tests:
               - not_null
       - name: order_delivered_carrier_date
-        description: fecha del despacho hacia el carrier
+        description: Fecha de entrega en la que el transportista realizó la entrega
         tests:
               - not_null
       - name: order_delivered_customer_date
-        description: fecha del despacho
+        description: Fecha en la que el cliente recibió el producto
         tests:
               - not_null
       - name: order_estimated_delivery_date
-        description: fecha estimada de entrega
+        description: Fecha estimada de entrega de los productos
         tests:
               - not_null
   
@@ -194,11 +195,11 @@ models:
       schema: ecommerce_raw
     columns:
       - name: product_category_name
-        description: nombre de la categoria del producto
+        description: Nombre de la categoria del producto
         tests:
               - not_null
       - name: product_category_name_english
-        description: traduccion del nombre de la categoria al ingles
+        description: Traduccion del nombre de la categoria del producto al ingles
         tests:
               - not_null
       
@@ -207,40 +208,40 @@ models:
       schema: ecommerce_raw
     columns:
       - name: product_id
-        description: id del producto
+        description: Id único del pedido realizado por los consumidores
         tests:
           - unique
           - not_null
       - name: product_category_name
-        description: categoria del producto
+        description: Nombre de la categoría del producto
         tests:
               - not_null
       - name: product_name_lenght
-        description: longitud del nombre del producto
+        description: Longitud de la cadena que especifica el nombre dado a los productos pedidos
         tests:
               - not_null
       - name: product_description_lenght
-        description: longitud de la descripcion del producto
+        description: Longitud de la descripción escrita para cada producto pedido
         tests:
               - not_null
       - name: product_photo_qty
-        description: cantidad de fotos del producto
+        description: Número de fotos de cada producto pedido disponibles en el portal de compras
         tests:
               - not_null
       - name: product_weight_g
-        description: peso del producto
+        description: Peso de los productos pedidos en gramos
         tests:
               - not_null
       - name: product_lenght_cm (gr)
-        description: largo del producto (cm)
+        description: Longitud de los productos pedidos en centímetros
         tests:
               - not_null
       - name: product_height_cm
-        description: alto del producto (cm)
+        description: Altura de los productos pedidos en centímetros
         tests:
               - not_null
       - name: product_widht_cm
-        description: ancho del producto (cm)
+        description: Ancho del producto pedido en centímetros
         tests:
               - not_null
   
@@ -249,20 +250,20 @@ models:
       schema: ecommerce_raw
     columns:
       - name: seller_id
-        description: id del seller
+        description: Id único del vendedor registrado en olist
         tests:
           - unique
           - not_null
       - name: seller_zip_code_prefix
-        description: prefijo del codigo postal del seller
+        description: Código postal de la ubicación del vendedor
         tests:
               - not_null
       - name: seller_city
-        description: ciudad del seller
+        description: Nombre de la ciudad del vendedor
         tests:
               - not_null
       - name: seller_state
-        description: provincia del seller
+        description: Código del estado
         tests:
               - not_null
     
