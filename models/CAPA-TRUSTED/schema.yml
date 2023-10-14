@@ -1,20 +1,32 @@
 version: 2
 
 models:
-  - name: customer
+  - name: customers
     config:
       schema: ecommerce_raw
     columns:
       - name: customer_id
         description: id del customer
+        tests:
+          - unique
+          - not_null
       - name: customer_unique_id
         description: id unico de cada customer
+        tests:
+          - unique
+          - not_null
       - name: customer_zip_code_prefix
         description: prefijo del codigo postal
+        tests:
+              - not_null
       - name: customer_city
         description: ciudad del customer
+        tests:
+              - not_null
       - name: customer_state
         description: provincia del customer
+        tests:
+              - not_null
 
   - name: geolocation
     config:
@@ -22,14 +34,24 @@ models:
     columns:
       - name: geolocation_zip_code_prefix
         description: prefijo del codigo postal
+        tests:
+              - not_null
       - name: geolocation_lat
         description: latitud
+        tests:
+              - not_null
       - name: geolocatio_lng
         description: longitud
+        tests:
+              - not_null
       - name: geolocation_city
         description: ciudad
+        tests:
+              - not_null
       - name: geolocation_state
         description: provincia
+        tests:
+              - not_null
 
   - name: order_items
     config:
@@ -37,18 +59,36 @@ models:
     columns:
       - name: order_id
         description: id de la orden
+        tests:
+          - unique
+          - not_null
       - name: order_item_id
         description: id del item de la orden
+        tests:
+          - unique
+          - not_null
       - name: product_id
         description: id del producto
+        tests:
+          - unique
+          - not_null
       - name: seller_id
         description: id del seller
+        tests:
+          - unique
+          - not_null
       - name: shipping_limit_date
         description: fecha limite para el despacho
+        tests:
+              - not_null
       - name: price
         description: precio
+        tests:
+              - not_null
       - name: freight_value
         description: valor del transporte
+        tests:
+              - not_null
   
   - name: order_payments
     config: 
@@ -56,14 +96,25 @@ models:
     columns:
       - name: order_id
         description: id de la orden
+        tests:
+          - unique
+          - not_null
       - name: payment_sequential
         description: verlo luego
+        tests:
+              - not_null
       - name: payment_type
         description: tipo de pago
+        tests:
+              - not_null
       - name: payments_installments
         description: verlo luego
+        tests:
+              - not_null
       - name: payment_value
         description: valor del pago
+        tests:
+              - not_null
 
   - name: order_reviews
     config:
@@ -71,18 +122,34 @@ models:
     columns:
       - name: review_id
         description: id del review
+        tests:
+          - unique
+          - not_null
       - name: order_id
         description: id de la orden
+        tests:
+          - unique
+          - not_null
       - name: review_score
         description: score del review
+        tests:
+              - not_null
       - name: review_comment_title
         description: titulo del review
+        tests:
+              - not_null
       - name: review_comment_message
         description: comentarios del review
+        tests:
+              - not_null
       - name: review_creation_table
         description: fecha de la creacion del review
+        tests:
+              - not_null
       - name: review_answer_timestamp
         description: fecha de la contestacion
+        tests:
+              - not_null
 
   - name: orders
     config:
@@ -90,20 +157,37 @@ models:
     columns:
       - name: order_id
         description: id de la orden
+        tests:
+          - unique
+          - not_null
       - name: customer_id
         description: id del customer
+        tests:
+          - unique
+          - not_null
       - name: order_status
         description: status de la orden
+        tests:
+              - not_null
       - name: order_purchase_time_stamp
         description: fecha de compra
+
       - name: order_approved_at
         description: fecha de aprobacion de la orden
+        tests:
+              - not_null
       - name: order_delivered_carrier_date
         description: fecha del despacho hacia el carrier
+        tests:
+              - not_null
       - name: order_delivered_customer_date
         description: fecha del despacho
+        tests:
+              - not_null
       - name: order_estimated_delivery_date
         description: fecha estimada de entrega
+        tests:
+              - not_null
   
   - name: product_category_name_translation
     config:
@@ -111,8 +195,12 @@ models:
     columns:
       - name: product_category_name
         description: nombre de la categoria del producto
+        tests:
+              - not_null
       - name: product_category_name_english
         description: traduccion del nombre de la categoria al ingles
+        tests:
+              - not_null
       
   - name: products
     config:
@@ -120,22 +208,41 @@ models:
     columns:
       - name: product_id
         description: id del producto
+        tests:
+          - unique
+          - not_null
       - name: product_category_name
         description: categoria del producto
+        tests:
+              - not_null
       - name: product_name_lenght
         description: longitud del nombre del producto
+        tests:
+              - not_null
       - name: product_description_lenght
         description: longitud de la descripcion del producto
+        tests:
+              - not_null
       - name: product_photo_qty
         description: cantidad de fotos del producto
+        tests:
+              - not_null
       - name: product_weight_g
         description: peso del producto
+        tests:
+              - not_null
       - name: product_lenght_cm (gr)
         description: largo del producto (cm)
+        tests:
+              - not_null
       - name: product_height_cm
         description: alto del producto (cm)
+        tests:
+              - not_null
       - name: product_widht_cm
         description: ancho del producto (cm)
+        tests:
+              - not_null
   
   - name: sellers
     config:
@@ -143,10 +250,19 @@ models:
     columns:
       - name: seller_id
         description: id del seller
+        tests:
+          - unique
+          - not_null
       - name: seller_zip_code_prefix
         description: prefijo del codigo postal del seller
+        tests:
+              - not_null
       - name: seller_city
         description: ciudad del seller
+        tests:
+              - not_null
       - name: seller_state
         description: provincia del seller
+        tests:
+              - not_null
     
