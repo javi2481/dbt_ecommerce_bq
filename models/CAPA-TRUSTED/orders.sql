@@ -10,7 +10,7 @@ select
   , TIMESTAMP(ORDER_DELIVERED_CUSTOMER_DATE) AS ORDER_DELIVERED_CUSTOMER_DATE
   , TIMESTAMP(ORDER_ESTIMATED_DELIVERY_DATE) AS ORDER_ESTIMATED_DELIVERY_DATE
 from 
-    data-analyst-prj.ecommerce_raw.orders
+    data-analyst-prj.g_drive_javier_ecommerce.orders
 where
     ORDER_ID IS NOT NULL
 AND CUSTOMER_ID IS NOT NULL

@@ -10,6 +10,6 @@ select
   , PRODUCT_HEIGHT_CM
   , PRODUCT_WIDTH_CM
 from 
-    data-analyst-prj.ecommerce_raw.products
+    data-analyst-prj.g_drive_javier_ecommerce.products
 where
     PRODUCT_ID IS NOT NULL

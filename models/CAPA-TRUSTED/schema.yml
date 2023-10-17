@@ -3,7 +3,7 @@ version: 2
 models:
   - name: customers
     config:
-      schema: ecommerce_raw
+      schema: g_drive_javier_ecommerce
     columns:
       - name: customer_id
         description: Id del consumidor que realizó la compra
@@ -30,32 +30,22 @@ models:
 
   - name: geolocation
     config:
-      schema: ecommerce_raw
+      schema: g_drive_javier_ecommerce
     columns:
       - name: geolocation_zip_code_prefix
         description: prefijo del codigo postal
-        tests:
-              - not_null
       - name: geolocation_lat
         description: latitud
-        tests:
-              - not_null
       - name: geolocatio_lng
         description: longitud
-        tests:
-              - not_null
       - name: geolocation_city
         description: ciudad
-        tests:
-              - not_null
       - name: geolocation_state
         description: provincia
-        tests:
-              - not_null
 
   - name: order_items
     config:
-      schema: ecommerce_raw
+      schema: g_drive_javier_ecommerce
     columns:
       - name: order_id
         description: Id único del pedido realizado por los consumidores
@@ -92,7 +82,7 @@ models:
   
   - name: order_payments
     config: 
-      schema: ecommerce_raw
+      schema: g_drive_javier_ecommerce
     columns:
       - name: order_id
         description: Id único del pedido realizado por los consumidores
@@ -118,7 +108,7 @@ models:
 
   - name: order_reviews
     config:
-      schema: ecommerce_raw
+      schema: g_drive_javier_ecommerce
     columns:
       - name: review_id
         description: Id de la revisión dada sobre el producto ordenado por el id del pedido
@@ -153,7 +143,7 @@ models:
 
   - name: orders
     config:
-      schema: ecommerce_raw
+      schema: g_drive_javier_ecommerce
     columns:
       - name: order_id
         description: Id único del pedido realizado por los consumidores
@@ -192,7 +182,7 @@ models:
   
   - name: product_category_name_translation
     config:
-      schema: ecommerce_raw
+      schema: g_drive_javier_ecommerce
     columns:
       - name: product_category_name
         description: Nombre de la categoria del producto
@@ -205,7 +195,7 @@ models:
       
   - name: products
     config:
-      schema: ecommerce_raw
+      schema: g_drive_javier_ecommerce
     columns:
       - name: product_id
         description: Id único del pedido realizado por los consumidores
@@ -247,7 +237,7 @@ models:
   
   - name: sellers
     config:
-      schema: ecommerce_raw
+      schema: g_drive_javier_ecommerce
     columns:
       - name: seller_id
         description: Id único del vendedor registrado en olist

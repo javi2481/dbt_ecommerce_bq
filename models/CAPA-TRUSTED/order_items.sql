@@ -10,7 +10,7 @@ select
   , FREIGHT_VALUE
 
 from 
-    data-analyst-prj.ecommerce_raw.order_items
+    data-analyst-prj.g_drive_javier_ecommerce.order_items
 where 
     ORDER_ID IS NOT NULL 
 AND ORDER_ITEM_ID IS NOT NULL 
