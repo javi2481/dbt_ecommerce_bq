@@ -7,6 +7,9 @@ models:
     columns:
       - name: customer_id
         description: Id del consumidor que realizó la compra
+        tests:
+          - unique
+          - not_null
       - name: customer_unique_id
         description: Id único del consumidor
         tests:
