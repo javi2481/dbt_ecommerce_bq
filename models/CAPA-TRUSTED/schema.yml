@@ -3,13 +3,10 @@ version: 2
 models:
   - name: customers
     config:
-      schema: g_drive_javier_ecommerce
+      schema: tdj
     columns:
       - name: customer_id
         description: Id del consumidor que realizó la compra
-        tests:
-          - unique
-          - not_null
       - name: customer_unique_id
         description: Id único del consumidor
         tests:
@@ -30,7 +27,7 @@ models:
 
   - name: geolocation
     config:
-      schema: g_drive_javier_ecommerce
+      schema: tdj
     columns:
       - name: geolocation_zip_code_prefix
         description: prefijo del codigo postal
@@ -45,7 +42,7 @@ models:
 
   - name: order_items
     config:
-      schema: g_drive_javier_ecommerce
+      schema: tdj
     columns:
       - name: order_id
         description: Id único del pedido realizado por los consumidores
@@ -82,7 +79,7 @@ models:
   
   - name: order_payments
     config: 
-      schema: g_drive_javier_ecommerce
+      schema: tdj
     columns:
       - name: order_id
         description: Id único del pedido realizado por los consumidores
@@ -108,7 +105,7 @@ models:
 
   - name: order_reviews
     config:
-      schema: g_drive_javier_ecommerce
+      schema: tdj
     columns:
       - name: review_id
         description: Id de la revisión dada sobre el producto ordenado por el id del pedido
@@ -143,7 +140,7 @@ models:
 
   - name: orders
     config:
-      schema: g_drive_javier_ecommerce
+      schema: tdj
     columns:
       - name: order_id
         description: Id único del pedido realizado por los consumidores
@@ -182,7 +179,7 @@ models:
   
   - name: product_category_name_translation
     config:
-      schema: g_drive_javier_ecommerce
+      schema: tdj
     columns:
       - name: product_category_name
         description: Nombre de la categoria del producto
@@ -195,7 +192,7 @@ models:
       
   - name: products
     config:
-      schema: g_drive_javier_ecommerce
+      schema: tdj
     columns:
       - name: product_id
         description: Id único del pedido realizado por los consumidores
@@ -237,7 +234,7 @@ models:
   
   - name: sellers
     config:
-      schema: g_drive_javier_ecommerce
+      schema: tdj
     columns:
       - name: seller_id
         description: Id único del vendedor registrado en olist

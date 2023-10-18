@@ -44,4 +44,4 @@ models:
     materialized: table
   service_data:
     materialized: table
-    
+  
