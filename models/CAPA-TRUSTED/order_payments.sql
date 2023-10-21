@@ -7,6 +7,6 @@ select
   , PAYMENT_INSTALLMENTS
   , PAYMENT_VALUE
 from 
-    FROM {{ source('ecommerce_raw', 'order_payments') }}
+    {{ source('ecommerce_raw', 'order_payments') }}
 where
     ORDER_ID IS NOT NULL

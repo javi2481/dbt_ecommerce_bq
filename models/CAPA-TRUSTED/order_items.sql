@@ -10,7 +10,7 @@ select
   , FREIGHT_VALUE
 
 from 
-    FROM {{ source('ecommerce_raw', 'order_items') }}
+    {{ source('ecommerce_raw', 'order_items') }}
 where 
     ORDER_ID IS NOT NULL 
 AND ORDER_ITEM_ID IS NOT NULL 

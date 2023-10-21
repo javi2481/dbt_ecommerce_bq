@@ -6,6 +6,6 @@ select
   , TRIM(UPPER(SELLER_CITY)) AS SELLER_CITY
   , TRIM(UPPER(SELLER_STATE)) AS SELLER_STATE
 from 
-    FROM {{ source('ecommerce_raw', 'sellers') }}
+    {{ source('ecommerce_raw', 'sellers') }}
 where
     SELLER_ID IS NOT NULL

@@ -10,6 +10,6 @@ select
   , PRODUCT_HEIGHT_CM
   , PRODUCT_WIDTH_CM
 from 
-    FROM {{ source('ecommerce_raw', 'products') }}
+    {{ source('ecommerce_raw', 'products') }}
 where
     PRODUCT_ID IS NOT NULL

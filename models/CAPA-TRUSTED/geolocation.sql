@@ -7,4 +7,4 @@ select
   , TRIM(UPPER(GEOLOCATION_CITY)) AS GEOLOCATION_CITY
   , TRIM(UPPER(GEOLOCATION_STATE)) AS GEOLOCATION_STATE
 from 
-    FROM {{ source('ecommerce_raw', 'geolocation') }}
+    {{ source('ecommerce_raw', 'geolocation') }}
