@@ -3,11 +3,11 @@
 select 
     CUSTOMER_ID
   , CUSTOMER_UNIQUE_ID
-  , COALESCE(CUSTOMER_ZIP_CODE_PREFIX, 0) AS CUSTOMER_ZIP_CODE_PREFIX
+  , CUSTOMER_ZIP_CODE_PREFIX
   , TRIM(UPPER(CUSTOMER_CITY)) AS CUSTOMER_CITY
   , TRIM(UPPER(CUSTOMER_STATE)) AS CUSTOMER_STATE
 from 
-    data-analyst-prj.ecommerce_raw.customers
+    data-analyst-prj.g_drive_javier_ecommerce.customers
 where
     CUSTOMER_ID IS NOT NULL 
 AND CUSTOMER_UNIQUE_ID IS NOT NULL
