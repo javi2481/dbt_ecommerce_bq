@@ -7,7 +7,7 @@ select
   , TRIM(UPPER(CUSTOMER_CITY)) AS CUSTOMER_CITY
   , TRIM(UPPER(CUSTOMER_STATE)) AS CUSTOMER_STATE
 from 
-    data-analyst-prj.ecommerce_raw.customers
+    FROM {{ source('ecommerce_raw', 'customers') }}
 where
     CUSTOMER_ID IS NOT NULL 
 AND CUSTOMER_UNIQUE_ID IS NOT NULL

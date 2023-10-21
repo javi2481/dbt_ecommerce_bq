@@ -7,6 +7,6 @@ select
   , PAYMENT_INSTALLMENTS
   , PAYMENT_VALUE
 from 
-    data-analyst-prj.ecommerce_raw.order_payments
+    FROM {{ source('ecommerce_raw', 'order_payments') }}
 where
     ORDER_ID IS NOT NULL

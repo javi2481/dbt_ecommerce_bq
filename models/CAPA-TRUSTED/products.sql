@@ -10,6 +10,6 @@ select
   , PRODUCT_HEIGHT_CM
   , PRODUCT_WIDTH_CM
 from 
-    data-analyst-prj.ecommerce_raw.products
+    FROM {{ source('ecommerce_raw', 'products') }}
 where
     PRODUCT_ID IS NOT NULL

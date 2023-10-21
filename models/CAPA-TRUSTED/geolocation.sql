@@ -7,4 +7,4 @@ select
   , TRIM(UPPER(GEOLOCATION_CITY)) AS GEOLOCATION_CITY
   , TRIM(UPPER(GEOLOCATION_STATE)) AS GEOLOCATION_STATE
 from 
-    data-analyst-prj.ecommerce_raw.geolocation
+    FROM {{ source('ecommerce_raw', 'geolocation') }}

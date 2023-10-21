@@ -9,7 +9,7 @@ select
   , TIMESTAMP(REVIEW_CREATION_DATE) AS REVIEW_CREATION_DATE
   , TIMESTAMP(REVIEW_ANSWER_TIMESTAMP) AS REVIEW_ANSWER_TIMESTAMP
 from 
-    data-analyst-prj.ecommerce_raw.order_reviews
+    FROM {{ source('ecommerce_raw', 'order_reviews') }}
 where
     REVIEW_ID IS NOT NULL
 AND ORDER_ID IS NOT NULL
