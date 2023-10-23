@@ -1,13 +1,10 @@
 {{ config(materialized="table") }}
 
-select 
-    CUSTOMER_ID
-  , CUSTOMER_UNIQUE_ID
-  , CUSTOMER_ZIP_CODE_PREFIX
-  , TRIM(UPPER(CUSTOMER_CITY)) AS CUSTOMER_CITY
-  , TRIM(UPPER(CUSTOMER_STATE)) AS CUSTOMER_STATE
-from 
-    {{ source('ecommerce_raw', 'customers') }}
-where
-    CUSTOMER_ID IS NOT NULL 
-AND CUSTOMER_UNIQUE_ID IS NOT NULL
+select
+    customer_id,
+    customer_unique_id,
+    customer_zip_code_prefix,
+    trim(upper(customer_city)) as customer_city,
+    trim(upper(customer_state)) as customer_state
+from {{ source("ecommerce_raw", "customers") }}
+where customer_id is not null and customer_unique_id is not null
