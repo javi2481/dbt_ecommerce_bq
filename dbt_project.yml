@@ -2,7 +2,7 @@
 # Name your project! Project names should contain only lowercase characters
 # and underscores. A good package name should reflect your organization's
 # name or the intended use of these models
-name: 'my_new_project'
+name: 'ecommerce'
 version: '1.0.0'
 config-version: 2
 
@@ -36,3 +36,12 @@ models:
     # Applies to all files under models/example/
     example:
       materialized: view
+  +on_schema_change: "sync_all_columns"
+  +persist_docs:
+    relation: true
+    columns: true
+  trusted-data:
+    materialized: table
+  service_data:
+    materialized: table
+  

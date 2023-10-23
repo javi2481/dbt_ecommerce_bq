@@ -1,0 +1,258 @@
+version: 2
+
+models:
+  - name: customers
+    config:
+      schema: tdj
+    columns:
+      - name: customer_id
+        description: Id del consumidor que realizó la compra
+        tests:
+          - unique
+          - not_null
+      - name: customer_unique_id
+        description: Id único del consumidor
+        tests:
+          - unique
+          - not_null
+      - name: customer_zip_code_prefix
+        description: Código postal de la ubicación del consumidor
+        tests:
+          - not_null
+      - name: customer_city
+        description: Nombre de la ciudad desde donde se realiza el pedido
+        tests:
+          - not_null
+      - name: customer_state
+        description: Código del estado desde donde se realiza el pedido
+        tests:
+          - not_null
+
+  - name: geolocation
+    config:
+      schema: tdj
+    columns:
+      - name: geolocation_zip_code_prefix
+        description: prefijo del codigo postal
+      - name: geolocation_lat
+        description: latitud
+      - name: geolocatio_lng
+        description: longitud
+      - name: geolocation_city
+        description: ciudad
+      - name: geolocation_state
+        description: provincia
+
+  - name: order_items
+    config:
+      schema: tdj
+    columns:
+      - name: order_id
+        description: Id único del pedido realizado por los consumidores
+        tests:
+          - unique
+          - not_null
+      - name: order_item_id
+        description: Id único asignado a cada artículo pedido en el pedido
+        tests:
+          - unique
+          - not_null
+      - name: product_id
+        description: Id único asignado a cada producto disponible en el sitio
+        tests:
+          - unique
+          - not_null
+      - name: seller_id
+        description: Id único del vendedor registrado en olist
+        tests:
+          - unique
+          - not_null
+      - name: shipping_limit_date
+        description: La fecha antes de la cual se debe completar el envío del producto
+        tests:
+          - not_null
+      - name: price
+        description: Precio real de los productos pedidos
+        tests:
+          - not_null
+      - name: freight_value
+        description: Tarifa de precio a la que se entrega un producto de un punto a otro
+        tests:
+          - not_null
+
+  - name: order_payments
+    config:
+      schema: tdj
+    columns:
+      - name: order_id
+        description: Id único del pedido realizado por los consumidores
+        tests:
+          - unique
+          - not_null
+      - name: payment_sequential
+        description: Secuencia de los pagos realizados en caso de compra a plazos
+        tests:
+          - not_null
+      - name: payment_type
+        description: Modo de pago utilizado
+        tests:
+          - not_null
+      - name: payments_installments
+        description: Número de cuotas en caso de compra a plazos
+        tests:
+          - not_null
+      - name: payment_value
+        description: Cantidad total pagada por el pedido de compra
+        tests:
+          - not_null
+
+  - name: order_reviews
+    config:
+      schema: tdj
+    columns:
+      - name: review_id
+        description: Id de la revisión dada sobre el producto ordenado por el id del pedido
+        tests:
+          - unique
+          - not_null
+      - name: order_id
+        description: Id único del pedido realizado por los consumidores
+        tests:
+          - unique
+          - not_null
+      - name: review_score
+        description: Puntuación de la revisión dada por el cliente para cada pedido en una escala de 1 a 5
+        tests:
+          - not_null
+      - name: review_comment_title
+        description: Título de la revisión
+        tests:
+          - not_null
+      - name: review_comment_message
+        description: Comentarios de la revisión publicados por el consumidor para cada pedido
+        tests:
+          - not_null
+      - name: review_creation_date
+        description: Marca de tiempo de la revisión cuando se crea
+        tests:
+          - not_null
+      - name: review_answer_timestamp
+        description: Marca de tiempo de la revisión respondida
+        tests:
+          - not_null
+
+  - name: orders
+    config:
+      schema: tdj
+    columns:
+      - name: order_id
+        description: Id único del pedido realizado por los consumidores
+        tests:
+          - unique
+          - not_null
+      - name: customer_id
+        description: Id del consumidor que realizó la compra
+        tests:
+          - unique
+          - not_null
+      - name: order_status
+        description: Estado del pedido realizado, es decir, entregado, enviado, etc
+        tests:
+          - not_null
+      - name: order_purchase_time_stamp
+        description: Marca de tiempo de la compra
+        tests:
+          - not_null
+      - name: order_approved_at
+        description: Marca de tiempo de la aprobación del pedido
+        tests:
+          - not_null
+      - name: order_delivered_carrier_date
+        description: Fecha de entrega en la que el transportista realizó la entrega
+        tests:
+          - not_null
+      - name: order_delivered_customer_date
+        description: Fecha en la que el cliente recibió el producto
+        tests:
+          - not_null
+      - name: order_estimated_delivery_date
+        description: Fecha estimada de entrega de los productos
+        tests:
+          - not_null
+
+  - name: product_category_name_translation
+    config:
+      schema: tdj
+    columns:
+      - name: product_category_name
+        description: Nombre de la categoria del producto
+        tests:
+          - not_null
+      - name: product_category_name_english
+        description: Traduccion del nombre de la categoria del producto al ingles
+        tests:
+          - not_null
+
+  - name: products
+    config:
+      schema: tdj
+    columns:
+      - name: product_id
+        description: Id único del pedido realizado por los consumidores
+        tests:
+          - unique
+          - not_null
+      - name: product_category_name
+        description: Nombre de la categoría del producto
+        tests:
+          - not_null
+      - name: product_name_lenght
+        description: Longitud de la cadena que especifica el nombre dado a los productos pedidos
+        tests:
+          - not_null
+      - name: product_description_lenght
+        description: Longitud de la descripción escrita para cada producto pedido
+        tests:
+          - not_null
+      - name: product_photo_qty
+        description: Número de fotos de cada producto pedido disponibles en el portal de compras
+        tests:
+          - not_null
+      - name: product_weight_g
+        description: Peso de los productos pedidos en gramos
+        tests:
+          - not_null
+      - name: product_lenght_cm (gr)
+        description: Longitud de los productos pedidos en centímetros
+        tests:
+          - not_null
+      - name: product_height_cm
+        description: Altura de los productos pedidos en centímetros
+        tests:
+          - not_null
+      - name: product_widht_cm
+        description: Ancho del producto pedido en centímetros
+        tests:
+          - not_null
+
+  - name: sellers
+    config:
+      schema: tdj
+    columns:
+      - name: seller_id
+        description: Id único del vendedor registrado en olist
+        tests:
+          - unique
+          - not_null
+      - name: seller_zip_code_prefix
+        description: Código postal de la ubicación del vendedor
+        tests:
+          - not_null
+      - name: seller_city
+        description: Nombre de la ciudad del vendedor
+        tests:
+          - not_null
+      - name: seller_state
+        description: Código del estado
+        tests:
+          - not_null
