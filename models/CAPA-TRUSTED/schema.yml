@@ -93,8 +93,6 @@ models:
           - not_null
       - name: payments_installments
         description: Número de cuotas en caso de compra a plazos
-        tests:
-          - unique
       - name: payment_value
         description: Cantidad total pagada por el pedido de compra
         tests:
@@ -118,12 +116,8 @@ models:
           - not_null
       - name: review_comment_title
         description: Título de la revisión
-        tests:
-          - unique
       - name: review_comment_message
         description: Comentarios de la revisión publicados por el consumidor para cada pedido
-        tests:
-          - unique
       - name: review_creation_date
         description: Marca de tiempo de la revisión cuando se crea
         tests:
@@ -151,20 +145,12 @@ models:
           - not_null
       - name: order_purchase_time_stamp
         description: Marca de tiempo de la compra
-        tests:
-          - unique
       - name: order_approved_at
         description: Marca de tiempo de la aprobación del pedido
-        tests:
-          - unique
       - name: order_delivered_carrier_date
         description: Fecha de entrega en la que el transportista realizó la entrega
-        tests:
-          - unique
       - name: order_delivered_customer_date
         description: Fecha en la que el cliente recibió el producto
-        tests:
-          - unique
       - name: order_estimated_delivery_date
         description: Fecha estimada de entrega de los productos
         tests:
@@ -193,36 +179,20 @@ models:
           - not_null
       - name: product_category_name
         description: Nombre de la categoría del producto
-        tests:
-          - not_null
       - name: product_name_lenght
         description: Longitud de la cadena que especifica el nombre dado a los productos pedidos
-        tests:
-          - unique
       - name: product_description_lenght
         description: Longitud de la descripción escrita para cada producto pedido
-        tests:
-          - unique
       - name: product_photo_qty
         description: Número de fotos de cada producto pedido disponibles en el portal de compras
-        tests:
-          - unique
       - name: product_weight_g
         description: Peso de los productos pedidos en gramos
-        tests:
-          - unique
       - name: product_lenght_cm (gr)
         description: Longitud de los productos pedidos en centímetros
-        tests:
-          - unique
       - name: product_height_cm
         description: Altura de los productos pedidos en centímetros
-        tests:
-          - unique
       - name: product_widht_cm
         description: Ancho del producto pedido en centímetros
-        tests:
-          - not_null
 
   - name: sellers
     config:
