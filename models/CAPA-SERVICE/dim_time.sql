@@ -2,12 +2,12 @@
 
 
 SELECT
-      EXTRACT(hour from o.ORDER_PURCHASE_TIMESTAMP) as hour
-    , EXTRACT(day from o.ORDER_PURCHASE_TIMESTAMP) as day
-    , EXTRACT(week from o.ORDER_PURCHASE_TIMESTAMP) as week
-    , EXTRACT(month from o.ORDER_PURCHASE_TIMESTAMP) as month
-    , EXTRACT(quarter from o.ORDER_PURCHASE_TIMESTAMP) as quarter
-    , EXTRACT(year from o.ORDER_PURCHASE_TIMESTAMP) as year
+      EXTRACT(hour from o.ORDER_PURCHASE_TIMESTAMP) as HOUR
+    , EXTRACT(day from o.ORDER_PURCHASE_TIMESTAMP) as DAY
+    , EXTRACT(week from o.ORDER_PURCHASE_TIMESTAMP) as WEEK
+    , EXTRACT(month from o.ORDER_PURCHASE_TIMESTAMP) as MONT
+    , EXTRACT(quarter from o.ORDER_PURCHASE_TIMESTAMP) as QUARTER
+    , EXTRACT(year from o.ORDER_PURCHASE_TIMESTAMP) as YEAR
 FROM {{ ref('orders') }} o
 
 

@@ -1,12 +1,12 @@
 {{ config(materialized="table") }}
 
 SELECT
-      seller_id
-    , or_rw.review_score as seller_rating
-    , g.GEOLOCATION_CITY as seller_city
-    , g.GEOLOCATION_STATE as seller_state
-    , g.GEOLOCATION_LAT as seller_geo_lat
-    , g.GEOLOCATION_LNG as seller_geo_lng
+      SELLER_ID
+    , or_rw.review_score as SELLER_RATING
+    , g.GEOLOCATION_CITY as SELLER_CITY
+    , g.GEOLOCATION_STATE as SELLER_STATE
+    , g.GEOLOCATION_LAT as SELLER_GEO_LAT
+    , g.GEOLOCATION_LNG as SELLER_GEO_LNG
 FROM {{ ref('sellers') }} s
     FULL JOIN {{ ref('order_reviews') }} or_rw
         ON s.seller_id = or_rw.review_id

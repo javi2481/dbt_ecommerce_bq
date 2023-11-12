@@ -1,6 +1,6 @@
 {{ config(materialized="table") }}
 
 SELECT
-      product_category_name
-    , product_category_name_translation
+      PRODUCT_CATEGORY_NAME
+    , PRODUCT_CATEGORY_NAME_TRANSLATION
 FROM {{ ref('product_category_name_translation') }}
