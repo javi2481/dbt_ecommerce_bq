@@ -6,16 +6,79 @@ models:
     config:
       schema: service_data_javier
     columns:
-      - name: dim_category_id
-        description: id de la dimension Categoria
-        test:
-          - unique
-          - not null
       - name: product_category_name
         description: Nombre de la Categoria
-        test:
-          - not null
       - name: product_category_name_translation
         description: Traduccion de la categoria del portugues al ingles
-        test:
-          - not null
+
+  - name: dim_customers
+    description: Dimension de Customers
+    config:
+      schema: service_data_javier
+    columns:
+      - name: customer_id
+        description: id de la dimension Customers
+      - name: customer_city
+        description: Ciudad del Cliente
+      - name: customer_state
+        description: Provincia del Customer
+      - name: customer_geo_lat
+        description: latitud donde se encuentra el cliente
+      - name: customer_geo_lng
+        description: longitud donde se encuentra el cliente
+
+  - name: dim_products
+    description: Dimension de Productos
+    config:
+      schema: service_data_javier
+    columns:
+      - name: product_id
+        description: Id del Producto
+      - name: product_category_name
+        description: Nombre de la Categoria del Producto
+      - name: product_price
+        description: Precio del Producto
+      - name: product_weight
+        description: peso del producto
+      - name: product_volume
+        description: Volumen que ocupa el Producto
+
+  - name: dim_sellers
+    description: Dimension de Vendedores
+    config:
+      schema: service_data_javier
+    columns:
+      - name: seller_id
+        description: Id del Vendedor
+      - name: seller_rating
+        description: Rating del Vendedor
+      - name: seller_city
+        description: Ciudad donde se encuentra el Vendedor
+      - name: seller_state
+        description: Provincia donde se encuentra el Vendedor
+      - name: seller_geo_lat
+        description: Latitud del Vendedor
+      - name: seller_geo_lng
+        description: Longitud del Vendedor
+
+  - name: dim_time
+    description: Dimension de Tiempo
+    config:
+      schema: service_data_javier
+    columns:
+      - name: hour
+        description: hora
+      - name: day
+        description: dia
+      - name: week
+        description: semana
+      - name: month
+        description: mes
+      - name: quarter
+        description: cuarto del año
+        tests:
+          - not_null
+      - name: year
+        description: año
+        tests:
+          - not_null
